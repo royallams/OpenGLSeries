@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/particles.dir/particles.c.o CMakeFiles/particles.dir/__/deps/tinycthread.c.o CMakeFiles/particles.dir/__/deps/getopt.c.o CMakeFiles/particles.dir/__/deps/glad_gl.c.o  -o particles -Wl,-rpath,/media/ess/DATADRIVE1/merge_share/OpenGLLearning/glfw-3.3.2/BUILD/src ../src/libglfw.so.3.3 -lm -lpthread -lrt 

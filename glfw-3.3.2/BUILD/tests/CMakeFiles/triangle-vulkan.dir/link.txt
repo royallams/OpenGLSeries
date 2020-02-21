@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/triangle-vulkan.dir/triangle-vulkan.c.o CMakeFiles/triangle-vulkan.dir/__/deps/glad_vulkan.c.o  -o triangle-vulkan -Wl,-rpath,/media/ess/DATADRIVE1/merge_share/OpenGLLearning/glfw-3.3.2/BUILD/src ../src/libglfw.so.3.3 -lm 

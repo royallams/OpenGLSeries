@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/simple.dir/simple.c.o CMakeFiles/simple.dir/__/deps/glad_gl.c.o  -o simple -Wl,-rpath,/media/ess/DATADRIVE1/merge_share/OpenGLLearning/glfw-3.3.2/BUILD/src ../src/libglfw.so.3.3 -lm 

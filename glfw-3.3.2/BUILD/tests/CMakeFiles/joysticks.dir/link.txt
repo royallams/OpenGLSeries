@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/joysticks.dir/joysticks.c.o CMakeFiles/joysticks.dir/__/deps/glad_gl.c.o  -o joysticks -Wl,-rpath,/media/ess/DATADRIVE1/merge_share/OpenGLLearning/glfw-3.3.2/BUILD/src ../src/libglfw.so.3.3 -lm 

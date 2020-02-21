@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/reopen.dir/reopen.c.o CMakeFiles/reopen.dir/__/deps/glad_gl.c.o  -o reopen -Wl,-rpath,/media/ess/DATADRIVE1/merge_share/OpenGLLearning/glfw-3.3.2/BUILD/src ../src/libglfw.so.3.3 -lm 
