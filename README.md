@@ -9,9 +9,9 @@ Currently the code is tested in linux
 USING THE CODE:-
 
 IN LINUX:-
--- Install QT (any version) and make sure the compiler kit is set properly .
--- Simply clone this repository .
--- Open the examples (like L3_Uniforms)(.pro file) in Qt Creator.
--- Build and Run.
+1) Install QT (any version) and make sure the compiler kit is set properly .
+2) Simply clone this repository .
+3) Open the examples (like L3_Uniforms)(.pro file) in Qt Creator.
+4) Build and Run.
 
 Prefer to read comments ...
