@@ -4,6 +4,23 @@
 
 using namespace std;
 
+
+
+const char* vertextShaderSource = "#version 330 core\n"
+"layout (location = 0) in vec3 aPos;\n"
+"void main()\n"
+"{\n"
+"  gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+"}\0";
+
+const char* fragmentShaderSource = "#version 330 core\n"
+"out vec4 FragColor;\n"
+"void main()\n"
+"{\n"
+"   FragColor = vec4(0.8f, 0.3f, 0.02f, 1.0f);\n"
+"}\n\0";
+
+
 int main()
 {
     cout << "Open GL Test Project !" << endl;
@@ -20,6 +37,13 @@ int main()
     // Tell GLFW we are using the CORE profile
     // So that means we only have the modern functions
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    GLfloat  vertices[] =
+    {
+        -0.5f, -0.5f * float(sqrt(3))/3, 0.0f,
+        0.5f,-0.5f * float(sqrt(3))/3, 0.0f,
+        0.0f, 0.5f* float(sqrt(3))*2/3,0.0f
+    };
 
 
 
@@ -42,6 +66,36 @@ int main()
     // Specify the viewport of OpenGL in the Window
     // In this case the viewport goes from x = 0, y = 0, to x = 800, y = 800
     glViewport(0, 0, 800, 800);
+
+
+
+    GLuint vertextShader = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertextShader,1, &vertextShaderSource, NULL);
+    glCompileShader(vertextShader);
+
+    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader, 1,&fragmentShaderSource, NULL);
+    glCompileShader(fragmentShader);
+
+    GLuint shaderProgram = glCreateProgram();
+    glAttachShader(shaderProgram, vertextShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    glLinkProgram(shaderProgram);
+
+    glDeleteShader(vertextShader);
+    glDeleteShader(fragmentShader);
+
+
+
+
+    GLuint VAO, VBO;
+    glGenVertexArrays(1, &VAO);
+
+    glGenBuffers(1,&VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);// Drw means vertice modified.
+
 
 
 
