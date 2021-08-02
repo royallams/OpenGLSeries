@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/heightmap.dir/heightmap.c.o CMakeFiles/heightmap.dir/__/deps/glad_gl.c.o  -o heightmap  -Wl,-rpath,/media/WIN_PART/E_Drive/Repository/Github/OpenGLSeries/Libraries/GLFW/build/src ../src/libglfw.so.3.3 -lm 

@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/inputlag.dir/inputlag.c.o CMakeFiles/inputlag.dir/__/deps/getopt.c.o CMakeFiles/inputlag.dir/__/deps/glad_gl.c.o  -o inputlag  -Wl,-rpath,/media/WIN_PART/E_Drive/Repository/Github/OpenGLSeries/Libraries/GLFW/build/src ../src/libglfw.so.3.3 -lm 
