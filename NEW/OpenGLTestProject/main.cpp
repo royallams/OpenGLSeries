@@ -1,6 +1,7 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <math.h>
 
 using namespace std;
 
@@ -41,7 +42,7 @@ int main()
     GLfloat  vertices[] =
     {
         -0.5f, -0.5f * float(sqrt(3))/3, 0.0f,
-        0.5f,-0.5f * float(sqrt(3))/3, 0.0f,
+        0.5f, -0.5f * float(sqrt(3))/3, 0.0f,
         0.0f, 0.5f* float(sqrt(3))*2/3,0.0f
     };
 
@@ -88,14 +89,24 @@ int main()
 
 
 
-    GLuint VAO, VBO;
+    GLuint VAO, VBO;//Create buffers
     glGenVertexArrays(1, &VAO);
-
     glGenBuffers(1,&VBO);
+
+    glBindVertexArray(VAO);
+
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);// Drw means vertice modified.
 
+    // TO let opengl knw how to use
+    glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 3*sizeof(float),(void*)0);//last where to start//Configure vertex attrbute
+   // TO use it
+    glEnableVertexAttribArray(0);
+
+    // TO be 100 percent sure not to chnage the buffers.
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
 
 
 
@@ -111,10 +122,24 @@ int main()
     // Main while loop
     while (!glfwWindowShouldClose(window))
     {
+        // Specify the color of the background
+        glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+        // Clean the back buffer and assign the new color to it
+        glClear(GL_COLOR_BUFFER_BIT);
+        glUseProgram(shaderProgram);
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glfwSwapBuffers(window);
+
         // Take care of all GLFW events
         glfwPollEvents();
     }
 
+
+
+    glDeleteVertexArrays(1,&VAO);
+    glDeleteBuffers(1,&VBO);
+    glDeleteProgram(shaderProgram);
 
 
     // Delete window before ending the program
